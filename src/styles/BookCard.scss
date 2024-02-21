@@ -1,0 +1,100 @@
+.book-card {
+  width: 200px;
+  height: 250px;
+  border: 2px solid rgb(198, 194, 194);
+  transition: box-shadow 0.3s ease;
+}
+
+.out{
+    opacity: 0.5;  
+}
+
+.book-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.up-div {
+  height: 65%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.out-of-stock {
+  background-image: url("../assets/out-of-stock.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.5; 
+}
+
+.photo-div {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.book-image {
+  width: 60%;
+  position: relative;
+}
+
+.down-div {
+  height: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.b-content {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.b-name {
+  font-size: 15px;
+  margin: 0px;
+}
+
+.b-author {
+  font-size: 10px;
+}
+
+.b-rating {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.rating {
+  background-color: #388e3c;
+  color: #ffffff;
+  width: 25%;
+  height: 60%;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.price-div {
+  width: 80%;
+}
+
+.price {
+  font-size: 14px;
+  margin: 0px;
+}
+
+.del {
+  font-size: 10px;
+  color: #878787;
+}
+
