@@ -1,0 +1,94 @@
+.c-card{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    gap: 30px;
+}
+
+.c-p-div{
+    width: 20%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.c-img{
+    width: 80px;
+}
+
+.c-b-div{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.c-b-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.c-b-name{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.c-b-auth{
+    font-size: 16px;
+    color: #878787;
+}
+
+
+.c-p{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.c-del{
+    font-size: 13px;
+    color: #878787;
+}
+
+.c-b-quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.as-button{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.q-t{
+    width: 20%;
+    height: 30px;
+    border: 1px solid #DCDCDC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.minus,.plus{
+    border: 1px solid #DCDCDC;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.r-button{
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: white;
+    color: #515050;
+    cursor: pointer;
+}
