@@ -17,7 +17,7 @@ const Firstpage = () => {
           </div>
         </div>
         <div className="front-div">
-        <div className="head">
+        <div className="front-head">
             <h1 className="heading">LOGIN</h1>
             <h1 className="heading">SIGNUP</h1>
         </div>

@@ -21,7 +21,7 @@ const BookCard = ({ book, handleBookNavigate }) => {
           </div>
           <div className="b-rating">
             <span className="rating">
-              4.5{" "}
+              4.5
               <StarOutlinedIcon
                 sx={{ color: "#FFFFFF", fontSize: "medium" }}
               ></StarOutlinedIcon>

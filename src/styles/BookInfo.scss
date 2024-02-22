@@ -161,7 +161,7 @@
 
 .b-d{
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .s-button {
@@ -202,4 +202,8 @@
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.wish-b,.cart-b,.b-photo,.s-button{
+  cursor: pointer;
 }

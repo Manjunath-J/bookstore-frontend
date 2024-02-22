@@ -42,11 +42,14 @@ const BookContainer = () => {
   
  
 
+  let sortedList;
   if (selectedSort === "Price: low to high") {
-    console.log('1')
-    bookList.sort((a, b) => a.price - b.price);
+    sortedList=[...bookList].sort((a, b) => a.discountPrice - b.discountPrice);
   } else if (selectedSort === "Price: high to low") {
-    bookList.sort((a, b) => b.price - a.price);
+    sortedList=[...bookList].sort((a, b) => b.discountPrice - a.discountPrice);
+  }
+  else{
+    sortedList=[...bookList]
   }
 
   return (
@@ -67,7 +70,7 @@ const BookContainer = () => {
           </Select>
         </div>
         <div className="books-div">
-          {bookList.slice(indexOfFirstBook, indexOfLastBook).map((book) => (
+          {sortedList.slice(indexOfFirstBook, indexOfLastBook).map((book) => (
             <BookCard key={book._id} book={book} handleBookNavigate={handleBookNavigate}/>
           ))}
         </div>

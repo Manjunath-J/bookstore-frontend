@@ -1,0 +1,61 @@
+.c-wish{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    gap: 20px;
+}
+
+.w-p-div{
+    width: 20%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.w-img{
+    width: 90px;
+}
+
+.w-b-div{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.w-b-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.w-b-name{
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.w-b-auth{
+    font-size: 18px;
+    color: #878787;
+}
+
+
+.w-p{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.w-del{
+    font-size: 15px;
+    color: #878787;
+
+}
+
+.d-icon{
+    display: flex;
+    align-items: center;
+}

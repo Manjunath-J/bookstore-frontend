@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate();
 
-  const handleClick = ()=>{
-    navigate("/home")
+  const handleClick = (url)=>{
+    navigate(url)
   }
 
   return (
@@ -22,7 +22,7 @@ const Header = () => {
             <img src={logo} className="logo" alt="book" onClick={handleClick}/>
           </div>
           <div className="name-div">
-            <h4 className="project-name" onClick={handleClick}>Bookstore</h4>
+            <h4 className="project-name" onClick={()=>handleClick("/home")}>Bookstore</h4>
           </div>
         </div>
         <div className="search-div">
@@ -41,10 +41,10 @@ const Header = () => {
             </div>
             <span style={{ color: "#FFFFFF", fontSize:"12px" }}>Profile</span>
           </div>
-          <div className="cart">
+          <div className="cart" onClick={()=>handleClick("/cart")}>
             <div>
               <ShoppingCartOutlinedIcon
-                sx={{ color: "#FFFFFF" }}
+                sx={{ color: "#FFFFFF" }} 
               ></ShoppingCartOutlinedIcon>
             </div>
             <span style={{ color: "#FFFFFF", fontSize:"12px" }}>Cart</span>
