@@ -14,7 +14,7 @@
   .c-up {
     display: flex;
   }
-  .c-down{
+  .c-down {
     display: flex;
     justify-content: flex-end;
     padding-bottom: 10px;
@@ -23,11 +23,11 @@
   flex-direction: column;
 }
 
-.place-o-button {
+.place-o-button , .cont-button{
   width: 20%;
   padding: 8px;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 16px;
   color: white;
   background-color: #3371b5;
   cursor: pointer;
@@ -35,9 +35,9 @@
   transition: box-shadow 0.3s ease;
 }
 
-.place-o-button:hover {
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-  }
+.place-o-button:hover, .cont-button:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
 
 .c-left {
   width: 50%;
@@ -75,4 +75,43 @@
 .address-bar {
   width: 50%;
   height: 50px;
+}
+
+.address-div {
+  width: 60%;
+  border: 1px solid #dcdcdc;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 50px;
+}
+
+.ad-up{
+    display: flex;
+
+}
+
+.ad-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ad-right{
+    width: 50%;
+}
+
+.ad-down{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+
+.cust-text{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.ad-1{
+    display: flex;
 }
