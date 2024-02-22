@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 25px;
-  margin-top: 50px;
+  margin: 50px 0px;
 }
 
 .my-cart {
@@ -23,7 +23,9 @@
   flex-direction: column;
 }
 
-.place-o-button , .cont-button{
+.place-o-button,
+.cont-button,
+.check-button {
   width: 20%;
   padding: 8px;
   border-radius: 5px;
@@ -35,7 +37,9 @@
   transition: box-shadow 0.3s ease;
 }
 
-.place-o-button:hover, .cont-button:hover {
+.place-o-button:hover,
+.cont-button:hover,
+.check-button:hover {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
@@ -54,7 +58,7 @@
 }
 
 .mc-text {
-  font-size: 22px;
+  font-size: 23px;
   font-weight: 600;
 }
 
@@ -77,7 +81,8 @@
   height: 50px;
 }
 
-.address-div {
+.address-div,
+.order-div {
   width: 60%;
   border: 1px solid #dcdcdc;
   display: flex;
@@ -85,33 +90,108 @@
   padding: 10px 50px;
 }
 
-.ad-up{
-    display: flex;
-
+.ad-up {
+  display: flex;
 }
 
-.ad-left{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.ad-left {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
 }
 
-.ad-right{
-    width: 50%;
+.ad-right {
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.ad-down{
-    display: flex;
-    justify-content: flex-end;
-    padding-bottom: 10px;
+.ad-down {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
 }
 
-.cust-text{
-    font-size: 22px;
-    font-weight: 600;
+.ad-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.ad-1{
-    display: flex;
+.add-home {
+  width: 60%;
+  height: 40px;
+  font-size: 18px;
+  color: #a03037;
+  background-color: white;
+  border: 1px solid #a03037;
+  cursor: pointer;
+}
+
+.cust-text {
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.ad-1,
+.ad-3 {
+  display: flex;
+  gap: 10px;
+}
+
+.ad-2,
+.ad-4 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ad-div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ad-txt {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.radio-btn {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ad-input-large {
+  border: 2px solid #dcdcdc;
+  height: 70px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.ad-input {
+  height: 35px;
+  border: 2px solid #dcdcdc;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.rad-lab {
+  font-size: 17px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.o-summary {
+  font-size: 23px;
+  font-weight: 600;
+}
+
+.o-down {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 10px;
 }

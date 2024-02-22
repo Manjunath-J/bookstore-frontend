@@ -1,0 +1,57 @@
+.o-card{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+    gap: 30px;
+}
+
+.o-p-div{
+    width: 20%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.o-img{
+    width: 80px;
+}
+
+.o-b-div{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.o-b-details{
+    display: flex;
+    flex-direction: column;
+}
+
+.o-b-name{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.o-b-auth{
+    font-size: 16px;
+    color: #878787;
+}
+
+
+.o-p{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.o-del{
+    font-size: 13px;
+    color: #878787;
+}
+

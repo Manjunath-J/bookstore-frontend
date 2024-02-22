@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wishlist from './components/Wishlist';
 import Firstpage from './components/Firstpage';
+import Order from './components/Order';
 
 function App() {
   const AppRoutes = createBrowserRouter([
@@ -22,6 +23,7 @@ function App() {
         { path: "book/:_id", element: <BookInfo /> },
         { path: "cart", element: <Cart /> },
         { path: "wishlist", element: <Wishlist /> },
+        { path: "order", element: <Order /> },
       ],
     },
   ]);
