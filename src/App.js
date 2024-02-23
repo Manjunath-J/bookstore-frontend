@@ -5,16 +5,12 @@ import Cart from './components/Cart';
 import Dashboard from './components/Dashboard';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wishlist from './components/Wishlist';
-import Firstpage from './components/Firstpage';
 import Order from './components/Order';
+import Sign from './components/Sign';
 
 function App() {
   const AppRoutes = createBrowserRouter([
 
-    {
-      path: "/sign",
-      element: <Firstpage />,
-    },
     {
       path: "/",
       element: <Dashboard/>,
@@ -25,6 +21,10 @@ function App() {
         { path: "wishlist", element: <Wishlist /> },
         { path: "order", element: <Order /> },
       ],
+    },
+    {
+      path: "/sign",
+      element: <Sign />,
     },
   ]);
   return <RouterProvider router={AppRoutes} />;

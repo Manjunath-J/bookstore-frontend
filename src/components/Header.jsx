@@ -9,9 +9,23 @@ import { useNavigate } from "react-router-dom";
 import Popper from "@mui/material/Popper";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import Firstpage from "./Firstpage";
 
 const Header = () => {
-  let user = false;
+
+  const [user, setUser] = useState(false);
+  const [opend, setOpend] = useState(false);
+  const [selectedValue, setSelectedValue] = useState();
+
+  const handleClickOpen = () => {
+    setOpend(true);
+  };
+
+  const handleClose = (value) => {
+    setOpend(false);
+    setSelectedValue(value);
+  };
+
 
   const navigate = useNavigate();
 
@@ -63,7 +77,15 @@ const Header = () => {
                 sx={{ color: "#FFFFFF" }}
               ></PersonOutlineOutlinedIcon>
             </div>
-            <span style={{ color: "#FFFFFF", fontSize: "12px" }}>Profile</span>
+            {user ? (
+              <span style={{ color: "#FFFFFF", fontSize: "12px" }}>
+                Profile
+              </span>
+            ) : (
+              <span style={{ color: "#FFFFFF", fontSize: "12px" }}>
+                Profile
+              </span>
+            )}
           </div>
           <div className="cart" onClick={() => handleNavigate("/cart")}>
             <div>
@@ -86,7 +108,14 @@ const Header = () => {
                 To access account and manage orders
               </span>
               <div style={{ display: "flex", justifyContent: "center" }}>
-                <button className="sign-btn">LOGIN/SIGNUP</button>
+                <button
+                  className="sign-btn"
+                  onClick={() => {
+                    handleClickOpen();
+                  }}
+                >
+                  LOGIN/SIGNUP
+                </button>
               </div>
             </div>
             {/* <hr style={{color:"#878787"}}/> */}
@@ -113,6 +142,11 @@ const Header = () => {
           </div>
         )}
       </Popper>
+      <Firstpage
+        selectedValue={selectedValue}
+        open={opend}
+        onClose={handleClose}
+      />
     </div>
   );
 };

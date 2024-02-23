@@ -1,11 +1,7 @@
-.main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .bg-div {
-  width: 40%;
+  width: 50%;
   height: 350px;
   display: flex;
   justify-content: center;
@@ -41,10 +37,9 @@
 }
 
 .main-div {
-  width: 60%;
   display: flex;
   justify-content: center;
-  padding-top: 150px;
+  padding: 50px;
 }
 
 .h {
@@ -54,7 +49,7 @@
 }
 
 .front-div {
-  width: 40%;
+  width: 50%;
   border: 2px solid rgb(198, 194, 194);
   border-radius: 10px;
   box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
@@ -119,7 +114,7 @@
 }
 
 .login-btn {
-  width: 50%;
+  width: 70%;
   height: 30px;
   border-radius: 5px;
   background-color: #a03037;
@@ -135,7 +130,7 @@
 }
 
 .f-b-btn {
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 15px;
@@ -197,4 +192,14 @@
   color: white;
   font-size: 15px;
   cursor: pointer;
+}
+
+
+.btn-sigin{
+  margin-top: 20px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
