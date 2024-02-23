@@ -1,77 +1,200 @@
-.main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bg-div {
-    width: 40%;
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .inside{
-        height: 90%;
-        border: 2px solid rgb(198, 194, 194);
-        border-right: none;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius:  10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-}
-
-
-
-.img-div{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.text{
-    width: 90%;
-    display: flex;
-    justify-content: center;
-}
-
-.book-shop{
-    width: 60%;
-    border-radius: 100%;
-}
-
-.main-div{
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    padding-top: 150px;
-}
-
-.h{
-    font-size: 20px;
-    font-style: oblique;
-    padding-left: 45px;
-}
-
-.front-div{
-    width: 50%;
+  width: 40%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .inside {
+    height: 90%;
     border: 2px solid rgb(198, 194, 194);
-    border-radius: 10px;
-    box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
-}
-
-
-.heading{
-    font-size: 25px;
-    display: inline;
-    cursor: pointer;
-}
-
-.front-head{
+    border-right: none;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    gap: 50px;
-    padding-left: 20px;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.img-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.text {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.book-shop {
+  width: 60%;
+  border-radius: 100%;
+}
+
+.main-div {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+.h {
+  font-size: 20px;
+  font-style: oblique;
+  padding-left: 45px;
+}
+
+.front-div {
+  width: 40%;
+  border: 2px solid rgb(198, 194, 194);
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 25px;
+  display: inline;
+  cursor: pointer;
+}
+
+.front-head {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.signin-div {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.mail-div,
+.pwd-div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.txt {
+  font-size: small;
+}
+
+.forgot-txt {
+  font-size: small;
+  color: #9d9d9d;
+  align-self: self-end;
+}
+
+.inp {
+  height: 25px;
+  border: 2px solid #e2e2e2;
+  outline: none;
+}
+
+.or-div {
+  display: flex;
+  flex-direction: row;
+}
+
+.l-div {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 50%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #a03037;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.or {
+  color: #807b7b;
+}
+
+.f-b-btn {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.f-btn {
+  width: 50%;
+  border-radius: 5px;
+  height: 30px;
+  background-color: #4266b2;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.b-btn {
+  height: 30px;
+  border-radius: 5px;
+  width: 50%;
+  border: 2px solid #00000029;
+  cursor: pointer;
+}
+
+.signup-div {
+  width: 80%;
+  padding: 0px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.su {
+  display: flex;
+  flex-direction: column;
+}
+
+.su-txt {
+  font-size: 12px;
+}
+
+.su-input {
+  height: 25px;
+  border: 2px solid #e2e2e2;
+  outline: none;
+}
+
+.su-1 {
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+.su-btn {
+  width: 100%;
+  height: 28px;
+  border-radius: 5px;
+  background-color: #a03037;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
 }

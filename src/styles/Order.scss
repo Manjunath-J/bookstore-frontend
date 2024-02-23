@@ -1,0 +1,29 @@
+.order-page{
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.o-success{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.continue-shop {
+  width: 20%;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 22px;
+  color: white;
+  background-color: #3371b5;
+  cursor: pointer;
+  border: 2px solid #3371b5;
+  transition: box-shadow 0.3s ease;
+}
+
+.continue-shop:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  }

@@ -4,10 +4,17 @@ import CartCard from "./CartCard";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import OrderCard from "./OrderCard";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [isAddress, setisAddress] = useState(false);
   const [continued, setContinued] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleNavigate = ()=>{
+    navigate("/order")
+  }
 
   const handleAddressDiv = (order) => {
     setisAddress(order);
@@ -157,7 +164,7 @@ const Cart = () => {
                 </div>
             </div>
             <div className="o-down">
-              <button className="check-button">CHECKOUT</button>
+              <button className="check-button" onClick={handleNavigate}>CHECKOUT</button>
             </div>
           </div>
         ) : (
