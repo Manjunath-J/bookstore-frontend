@@ -1,26 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Cart.scss";
 import CartCard from "./CartCard";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import OrderCard from "./OrderCard";
 import { useNavigate } from "react-router-dom";
+import { getCart } from "../utils/HttpService";
 
 const Cart = () => {
   const [isAddress, setisAddress] = useState(false);
   const [continued, setContinued] = useState(false);
 
+  const [cartData, setCartData] = useState([]);
+  const [isCart, setIsCart] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await getCart("/cart");
+      if (res.data.items) {
+        setCartData(res.data.items);
+        setIsCart(true);
+      }
+    };
+    fetchData();
+  }, []);
+
   const navigate = useNavigate();
 
-  const handleNavigate = ()=>{
-    navigate("/order")
-  }
-
-  const handleAddressDiv = (order) => {
-    setisAddress(order);
+  const handleNavigate = () => {
+    navigate("/order");
   };
 
-  const handleCOntinue = (next) => {
+  const handleAddressDiv = (order) => {
+    if(cartData.length>0) setisAddress(order);
+  };
+
+  const handleContinue = (next) => {
     setContinued(next);
   };
 
@@ -31,10 +46,14 @@ const Cart = () => {
           <div className="c-up">
             <div className="c-left">
               <div className="mc-div">
-                <span className="mc-text">My Cart (1)</span>
+                <span className="mc-text">My Cart ({cartData.length})</span>
               </div>
               <div>
-                <CartCard />
+                {isCart ? (
+                  cartData.map((book) => <CartCard key={book._id} book={book}/>)
+                ) : (
+                  <div></div>
+                )}
               </div>
             </div>
             <div className="c-right">
@@ -138,7 +157,7 @@ const Cart = () => {
               <div className="ad-down">
                 <button
                   className="cont-button"
-                  onClick={() => handleCOntinue(true)}
+                  onClick={() => handleContinue(true)}
                 >
                   CONTINUE
                 </button>
@@ -156,15 +175,17 @@ const Cart = () => {
         {continued ? (
           <div className="order-div">
             <div className="o-up">
-                <div>
-                    <span className="o-summary">Order Summary</span>
-                </div>
-                <div>
-                    <OrderCard />
-                </div>
+              <div>
+                <span className="o-summary">Order Summary</span>
+              </div>
+              <div>
+                <OrderCard />
+              </div>
             </div>
             <div className="o-down">
-              <button className="check-button" onClick={handleNavigate}>CHECKOUT</button>
+              <button className="check-button" onClick={handleNavigate}>
+                CHECKOUT
+              </button>
             </div>
           </div>
         ) : (

@@ -7,8 +7,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Wishlist from './components/Wishlist';
 import Order from './components/Order';
 import Sign from './components/Sign';
+import { Provider } from 'react-redux';
+import BookStore from "./utils/redux-stores/Bookstore"
 
-function App() {
+
   const AppRoutes = createBrowserRouter([
 
     {
@@ -27,7 +29,14 @@ function App() {
       element: <Sign />,
     },
   ]);
-  return <RouterProvider router={AppRoutes} />;
-}
 
+function App() {
+  return (
+    <div className="app-container">
+      <Provider store={BookStore}>
+        <RouterProvider router={AppRoutes}></RouterProvider>
+      </Provider>
+    </div>
+  );
+}
 export default App;

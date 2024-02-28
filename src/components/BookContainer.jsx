@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { getAllBooks } from "../utils/HttpService";
+import { getAllBooks, getCart } from "../utils/HttpService";
 import BookCard from "./BookCard";
 import { Pagination, Select, MenuItem } from "@mui/material";
 import "../styles/BookContainer.scss";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { setBookData } from "../utils/redux-stores/BookSlice";
+import { setCartItems } from "../utils/redux-stores/CartSlice";
 
 
 const BookContainer = () => {
-  const [bookList, setBookList] = useState([]); 
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedSort, setSelectedSort] = useState("Relevance");
   const booksPerPage = 8;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const bookList = useSelector((store) => store.book.searchData);
 
     const handleBookNavigate = (book)=>{
         navigate(`/book/${book._id}`)
@@ -20,7 +24,15 @@ const BookContainer = () => {
   useEffect(() => {
     const fetchData = async () => {
       const res = await getAllBooks("books");
-      setBookList(res.data.data);
+      dispatch(setBookData(res.data.data))
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await getCart("cart");
+      if(res.data) dispatch(setCartItems(res.data))
     };
     fetchData();
   }, []);

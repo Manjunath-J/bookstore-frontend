@@ -10,12 +10,15 @@ import Popper from "@mui/material/Popper";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import Firstpage from "./Firstpage";
+import { useDispatch } from "react-redux";
+import { filterBookData } from "../utils/redux-stores/BookSlice";
 
 const Header = () => {
-
   const [user, setUser] = useState(false);
   const [opend, setOpend] = useState(false);
   const [selectedValue, setSelectedValue] = useState();
+
+  const dispatch = useDispatch();
 
   const handleClickOpen = () => {
     setOpend(true);
@@ -25,7 +28,6 @@ const Header = () => {
     setOpend(false);
     setSelectedValue(value);
   };
-
 
   const navigate = useNavigate();
 
@@ -67,7 +69,12 @@ const Header = () => {
           <ListItemIcon>
             <SearchIcon sx={{ color: "#9D9D9D" }}></SearchIcon>
           </ListItemIcon>
-          <input className="search" type="search" placeholder="Search..." />
+          <input
+            className="search"
+            type="search"
+            placeholder="Search..."
+            onChange={(e) => {dispatch(filterBookData(e.target.value))}}
+          />
         </div>
 
         <div className="right-icons">
