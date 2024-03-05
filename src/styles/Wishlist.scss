@@ -17,7 +17,6 @@
 
 .w-card{
     width: 70%;
-    height: 180px;
     padding: 0px 20px;
     border: 1px solid #E4E4E4;
 }
@@ -25,4 +24,15 @@
 .w-text{
     font-size: 22px;
     font-weight: 500;
+}
+
+.no-item-wish{
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    align-items: center;
+    .no-wish{
+        font-size: 22px;
+        color: #333232;
+    }
 }

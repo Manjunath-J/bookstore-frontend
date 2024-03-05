@@ -51,7 +51,7 @@
 }
 
 .c-right {
-  width: 60%;
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   padding: 10px;
@@ -194,4 +194,21 @@
   display: flex;
   justify-content: flex-end;
   padding-bottom: 10px;
+}
+
+.p-cart {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.no-item-cart {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  align-items: center;
+  .no-cart {
+    font-size: 22px;
+    color: #333232;
+  }
 }

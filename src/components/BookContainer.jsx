@@ -6,7 +6,6 @@ import "../styles/BookContainer.scss";
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { setBookData } from "../utils/redux-stores/BookSlice";
-import { setCartItems } from "../utils/redux-stores/CartSlice";
 
 
 const BookContainer = () => {
@@ -29,13 +28,7 @@ const BookContainer = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await getCart("cart");
-      if(res.data) dispatch(setCartItems(res.data))
-    };
-    fetchData();
-  }, []);
+ 
 
   // Logic for pagination
   const indexOfLastBook = currentPage * booksPerPage;

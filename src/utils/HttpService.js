@@ -2,36 +2,25 @@ import axios from "axios";
 
 const baseURL = "http://localhost:3000/api/v1/";
 
-const header={
-  'Authorization': `Bearer ${localStorage.getItem("Token")}`
-}
-
-
-
 //User
 
 export const createUser = async (endpoint, body) => {
   try {
-    return await axios.post(baseURL + endpoint, body)
+    return await axios.post(baseURL + endpoint, body);
   } catch (error) {
     console.log(error);
   }
-}
-
-export const login = async (endpoint, body) => {
-  try{
-    const response = await axios.post(baseURL + endpoint, body)
-    localStorage.setItem("Token", response?.data.data);
-    return
-   }
-   catch(error){
-       console.log(error);
-   }
 };
 
-
-
-
+export const login = async (endpoint, body) => {
+  try {
+    const response = await axios.post(baseURL + endpoint, body);
+    localStorage.setItem("Token", response?.data.data);
+    return;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 //Books
 
@@ -49,25 +38,24 @@ export const getBook = async (endpoint) => {
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-export const searchBook = async (endpoint) =>{
+export const searchBook = async (endpoint) => {
   try {
     return await axios.get(baseURL + endpoint);
   } catch (error) {
     console.log(error);
   }
-}
-
-
-
-
+};
 
 //WishList
 
 export const getWishList = async (endpoint) => {
   try {
-    const response = await axios.get(baseURL + endpoint, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.get(baseURL + endpoint, { headers: header });
 
     const bookData = response.data;
 
@@ -80,7 +68,15 @@ export const getWishList = async (endpoint) => {
 
 export const updateWishlist = async (endpoint) => {
   try {
-    const response = await axios.post(baseURL + endpoint,{}, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+
+    const response = await axios.post(
+      baseURL + endpoint,
+      {},
+      { headers: header }
+    );
 
     const bookData = response.data;
 
@@ -93,7 +89,12 @@ export const updateWishlist = async (endpoint) => {
 
 export const removeWishlist = async (endpoint) => {
   try {
-    const response = await axios.delete(baseURL + endpoint, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.delete(baseURL + endpoint, {
+      headers: header,
+    });
 
     const bookData = response.data;
 
@@ -104,16 +105,14 @@ export const removeWishlist = async (endpoint) => {
   }
 };
 
-
-
-
-
-
 //Cart
 
 export const getCart = async (endpoint) => {
   try {
-    const response = await axios.get(baseURL + endpoint, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.get(baseURL + endpoint, { headers: header });
 
     const bookData = response.data;
 
@@ -127,7 +126,14 @@ export const getCart = async (endpoint) => {
 
 export const updateCart = async (endpoint) => {
   try {
-    const response = await axios.post(baseURL + endpoint,{}, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.post(
+      baseURL + endpoint,
+      {},
+      { headers: header }
+    );
     const bookData = response.data;
 
     return bookData;
@@ -139,7 +145,12 @@ export const updateCart = async (endpoint) => {
 
 export const removeCart = async (endpoint) => {
   try {
-    const response = await axios.delete(baseURL + endpoint, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.delete(baseURL + endpoint, {
+      headers: header,
+    });
 
     const bookData = response.data;
 
@@ -150,25 +161,31 @@ export const removeCart = async (endpoint) => {
   }
 };
 
-
-
-
-
-
 //Orders
 
 export const getOrders = async (endpoint) => {
   try {
-    const orderData = await axios.get(baseURL + endpoint, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const orderData = await axios.get(baseURL + endpoint, { headers: header });
     return orderData;
   } catch (error) {
     throw error;
   }
 };
 
-export const placeOrder = async (endpoint,data) => {
+export const placeOrder = async (endpoint, data) => {
   try {
-    const response = await axios.post(baseURL + endpoint,{data:data}, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+
+    const response = await axios.post(
+      baseURL + endpoint,
+      { data: data },
+      { headers: header }
+    );
 
     const bookData = response.data;
 
@@ -179,16 +196,14 @@ export const placeOrder = async (endpoint,data) => {
   }
 };
 
-
-
-
-
-
 //Address
 
 export const getAddress = async (endpoint) => {
   try {
-    const response = await axios.get(baseURL + endpoint, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.get(baseURL + endpoint, { headers: header });
 
     const address = response.data;
 
@@ -201,7 +216,14 @@ export const getAddress = async (endpoint) => {
 
 export const addAddress = async (endpoint, data) => {
   try {
-    const response = await axios.post(baseURL + endpoint,{data}, {headers: header});
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.post(
+      baseURL + endpoint,
+      { data },
+      { headers: header }
+    );
 
     const addressData = response.data;
 

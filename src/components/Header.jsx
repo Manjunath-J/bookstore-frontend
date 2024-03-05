@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Header.scss";
 import logo from "../assets/education@2x.png";
 import SearchIcon from "@mui/icons-material/Search";
@@ -17,6 +17,16 @@ const Header = () => {
   const [user, setUser] = useState(false);
   const [opend, setOpend] = useState(false);
   const [selectedValue, setSelectedValue] = useState();
+  const navigate = useNavigate();
+
+  const status = localStorage.getItem("Token") ? true : false;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setUser(status)
+    };
+    fetchData();
+  }, []);
 
   const dispatch = useDispatch();
 
@@ -29,8 +39,6 @@ const Header = () => {
     setSelectedValue(value);
   };
 
-  const navigate = useNavigate();
-
   const handleNavigate = (url) => {
     navigate(url);
   };
@@ -41,6 +49,11 @@ const Header = () => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    handleClick();
+    navigate("home");
+  };
   const open = Boolean(anchorEl);
   const id = open ? "simple-popper" : undefined;
 
@@ -73,7 +86,9 @@ const Header = () => {
             className="search"
             type="search"
             placeholder="Search..."
-            onChange={(e) => {dispatch(filterBookData(e.target.value))}}
+            onChange={(e) => {
+              dispatch(filterBookData(e.target.value));
+            }}
           />
         </div>
 
@@ -84,15 +99,8 @@ const Header = () => {
                 sx={{ color: "#FFFFFF" }}
               ></PersonOutlineOutlinedIcon>
             </div>
-            {user ? (
-              <span style={{ color: "#FFFFFF", fontSize: "12px" }}>
-                Profile
-              </span>
-            ) : (
-              <span style={{ color: "#FFFFFF", fontSize: "12px" }}>
-                Profile
-              </span>
-            )}
+
+            <span style={{ color: "#FFFFFF", fontSize: "12px" }}>Profile</span>
           </div>
           <div className="cart" onClick={() => handleNavigate("/cart")}>
             <div>
@@ -106,7 +114,47 @@ const Header = () => {
       </div>
       <Popper id={id} open={open} anchorEl={anchorEl}>
         {user ? (
-          <div className="pre-up-div"></div>
+          <div className="no-up-div" style={{ width: "200px" }}>
+            <div className="no-1">
+              <span className="welcome-txt">Welcome</span>
+            </div>
+            <div className="no-2">
+            <div className="no-2-1">
+                <PersonOutlineOutlinedIcon
+                  sx={{ color: "#878787", fontSize: "15px" }}
+                ></PersonOutlineOutlinedIcon>
+                <span className="txt-1">Profile</span>
+              </div>
+              <div className="no-2-1">
+                <ShoppingBagOutlinedIcon
+                  sx={{ color: "#878787", fontSize: "15px" }}
+                ></ShoppingBagOutlinedIcon>
+                <span className="txt-1">My Orders</span>
+              </div>
+              <div
+                className="no-2-1"
+                onClick={() => {
+                  handleNavigate("/wishlist");
+                  handleClick();
+                }}
+              >
+                <FavoriteBorderOutlinedIcon
+                  sx={{ color: "#878787", fontSize: "15px" }}
+                ></FavoriteBorderOutlinedIcon>
+                <span className="txt-1">Wishlists</span>
+              </div>
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <button
+                className="sign-btn"
+                onClick={() => {
+                  handleLogout();
+                }}
+              >
+                LOGOUT
+              </button>
+            </div>
+          </div>
         ) : (
           <div className="no-up-div">
             <div className="no-1">
@@ -125,7 +173,6 @@ const Header = () => {
                 </button>
               </div>
             </div>
-            {/* <hr style={{color:"#878787"}}/> */}
             <div className="no-2">
               <div className="no-2-1">
                 <ShoppingBagOutlinedIcon

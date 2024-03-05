@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "../styles/BookInfo.scss";
 import { useNavigate, useParams } from "react-router-dom";
-import { getBook, removeCart,getCart, updateCart } from "../utils/HttpService";
+import {
+  getBook,
+  removeCart,
+  getCart,
+  updateCart,
+  updateWishlist,
+  removeWishlist,
+  getWishList,
+} from "../utils/HttpService";
 import StarOutlinedIcon from "@mui/icons-material/StarOutlined";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Rating from "@mui/material/Rating";
@@ -10,26 +18,44 @@ import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-const BookInfo = () => {
+const BookInfo = ({handleClick}) => {
   const book = useParams();
   const [books, setBook] = useState([]);
   const [Quantity, setQuantity] = useState(1);
   const [isAdd, setIsAdd] = useState(false);
+  const [isWish, setIsWish] = useState(false);
   const navigate = useNavigate();
+
+  const status = localStorage.getItem("Token") ? true : false;
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await getBook(`books/${book._id}`);
       setBook(result.data.data);
 
-      const res = await getCart("/cart");
-      let cartData = res.data?.items;
-      const data = cartData?.filter(
-        (ele) => ele.book_id === result.data?.data._id
-      );
-      if (data) if (data[0]) {
-        setIsAdd(true);
-        setQuantity(data[0].quantity);
+      if (status) {
+        const res = await getCart("/cart");
+        let cartData = res?.data.items;
+        const data = cartData?.filter(
+          (ele) => ele.book_id === result.data?.data._id
+        );
+        if (data)
+          if (data[0]) {
+            setIsAdd(true);
+            setQuantity(data[0].quantity);
+          }
+      }
+
+      if (status) {
+        const wish = await getWishList("/wishlist");
+        let wishData = wish?.data.items;
+        const wishlist = wishData?.filter(
+          (ele) => ele.book_id === result.data?.data._id
+        );
+        if (wishlist)
+          if (wishlist[0]) {
+            setIsWish(true);
+          }
       }
     };
     fetchData();
@@ -38,6 +64,15 @@ const BookInfo = () => {
   let quantity;
   if (books.quantity > 0) quantity = books.quantity;
   else quantity = 0;
+
+  const handleWish = async (isWish) => {
+    if (status) {
+      setIsWish(isWish);
+      if (isWish) {
+        await updateWishlist(`/wishlist/${books._id}`);
+      } else await removeWishlist(`/wishlist/${books._id}`);
+    } 
+  };
 
   const increaseQuantity = () => {
     if (books.quantity > Quantity) {
@@ -54,8 +89,10 @@ const BookInfo = () => {
   };
 
   const handleCart = async () => {
-    await updateCart(`/cart/${books._id}`);
-    if (!isAdd) setIsAdd(true);
+    if (status) {
+      await updateCart(`/cart/${books._id}`);
+      if (!isAdd) setIsAdd(true);
+    } 
   };
 
   const handleRemove = async () => {
@@ -95,9 +132,16 @@ const BookInfo = () => {
                 </button>
               </div>
             )}
-            <button className="wish-b">
+            <button
+              className={`wish-b ${isWish ? "active" : ""}`}
+              onClick={() => handleWish(!isWish)}
+            >
               <FavoriteIcon
-                sx={{ color: "#FFFFFF", fontSize: "medium" }}
+                sx={
+                  isWish
+                    ? { color: "#EE4B2B", fontSize: "medium" }
+                    : { color: "#FFFFFF", fontSize: "medium" }
+                }
               ></FavoriteIcon>
               WISHLIST
             </button>

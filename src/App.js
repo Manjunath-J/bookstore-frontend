@@ -17,7 +17,8 @@ import BookStore from "./utils/redux-stores/Bookstore"
       path: "/",
       element: <Dashboard/>,
       children: [
-        { path: "home", index: true, element: <BookContainer /> },
+        { path: "/", element: <BookContainer /> },
+        { path: "home", element: <BookContainer /> },
         { path: "book/:_id", element: <BookInfo /> },
         { path: "cart", element: <Cart /> },
         { path: "wishlist", element: <Wishlist /> },
