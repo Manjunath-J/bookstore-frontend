@@ -1,0 +1,93 @@
+.myo-cart {
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.no-order-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200px;
+  gap: 50px;
+}
+
+.no-order-txt {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.order-cnt{
+  display: flex;
+  justify-content: center;
+}
+
+.no-order-btn {
+  width: 20%;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 22px;
+  color: white;
+  background-color: #3371b5;
+  cursor: pointer;
+  border: 2px solid #3371b5;
+  transition: box-shadow 0.3s ease;
+}
+
+.no-order-btn:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.orders {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding-top: 20px;
+}
+
+.orderData {
+  width: 80%;
+  display: flex;
+  border: 1px solid #b3b1b1;
+}
+
+.orderData-left {
+  width: 80%;
+  padding: 10px 20px;
+}
+
+.orderData-right {
+  width: 20%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.orderdate {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.date-div{
+  max-width: 80%;
+  height: 25px;
+  border: 1px solid rgb(131, 128, 128);
+  background-color: #f9f2f2;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.total-div{
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.ordertotal{
+  font-size: 20px;
+  font-weight: 500;
+}

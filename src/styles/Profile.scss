@@ -1,0 +1,161 @@
+.profile-cnt{
+    display: flex;
+    padding: 50px 0px 50px 250px;
+    margin-bottom: 100px;
+}
+
+.pro-info{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.person-det{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.address-det{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pro-1{
+    display: flex;
+    gap: 30px;
+    padding-bottom: 10px;
+    .pd-pro{
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .edit-pro{
+        display: flex;
+        align-items: end;
+        padding: 2px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #A03037;
+    }
+}
+
+.pro-2{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .pro-2-1{
+        font-size: 13px;
+        font-weight: 500;
+        color: #1d1b1c;
+    }
+    .pro-2-2{
+        font-size: 15px;
+        height: 15px;
+        color: #878787;
+        padding: 10px 20px;
+    }
+}
+
+.ad-1{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    .ad-1-1{
+        font-size: 25px;
+        font-weight: 600;
+    }
+    .ad-1-btn{
+        justify-self: center;
+        font-size: 16px;
+        color: #A03037;
+        border: 2px solid #A03037;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+.add-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.add-1{
+    display: flex;
+    gap: 30px;
+    padding-bottom: 10px;
+    .add-1-1{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .add-1-2{
+        display: flex;
+        align-items: end;
+        padding: 2px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #A03037;
+    }
+}
+
+.add-2{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .add-2-1{
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .add-2-2{
+        font-size: 15px;
+        height: 50px;
+        color: #878787;
+        padding: 10px 20px;
+    }
+}
+
+.add-3{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.add-3-1{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    .add-3-txt{
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .add-3-inp{
+        font-size: 15px;
+        height: 15px;
+        color: #878787;
+        padding: 10px 20px;
+    }
+}
+
+.add-4{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .add-4-txt{
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .add-rad-btn{
+        padding-left: 50px;
+        display: flex;
+        gap: 70px;
+    }
+}
+
+.rad-add{
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}

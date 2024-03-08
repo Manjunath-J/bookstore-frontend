@@ -44,6 +44,7 @@ const Firstpage = (props) => {
         password,
       });
       handleClose()
+      handleNavigate()
     } catch (error) {
       console.error("Error signing in:", error.message);
     }

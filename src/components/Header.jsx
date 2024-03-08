@@ -28,6 +28,15 @@ const Header = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    if(status){
+      setUser(true)
+    }
+    else
+    setUser(false)
+  }, [status]);
+
+
   const dispatch = useDispatch();
 
   const handleClickOpen = () => {
@@ -119,13 +128,20 @@ const Header = () => {
               <span className="welcome-txt">Welcome</span>
             </div>
             <div className="no-2">
-            <div className="no-2-1">
+            <div className="no-2-1" onClick={() => {
+                  handleNavigate("/profile");
+                  handleClick();
+                }}>
                 <PersonOutlineOutlinedIcon
                   sx={{ color: "#878787", fontSize: "15px" }}
                 ></PersonOutlineOutlinedIcon>
                 <span className="txt-1">Profile</span>
               </div>
-              <div className="no-2-1">
+              <div className="no-2-1"
+              onClick={() => {
+                handleNavigate("/myorders");
+                handleClick();
+              }}>
                 <ShoppingBagOutlinedIcon
                   sx={{ color: "#878787", fontSize: "15px" }}
                 ></ShoppingBagOutlinedIcon>
@@ -174,7 +190,11 @@ const Header = () => {
               </div>
             </div>
             <div className="no-2">
-              <div className="no-2-1">
+              <div className="no-2-1"
+              onClick={() => {
+                handleNavigate("/myorders");
+                handleClick();
+              }}>
                 <ShoppingBagOutlinedIcon
                   sx={{ color: "#878787", fontSize: "15px" }}
                 ></ShoppingBagOutlinedIcon>

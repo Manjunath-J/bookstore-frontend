@@ -16,7 +16,8 @@
   }
   .c-down {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     padding-bottom: 10px;
   }
   display: flex;
@@ -192,7 +193,7 @@
 
 .o-down {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding-bottom: 10px;
 }
 

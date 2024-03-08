@@ -13,7 +13,7 @@ const Wishlist = () => {
     const fetchData = async () => {
       if (status) {
         const res = await getWishList("/wishlist");
-        if (res.data.items) {
+        if (res.data?.items) {
           setWishData(res.data.items);
           if(res.data.items.length>0)
             setIsList(true);
@@ -21,7 +21,7 @@ const Wishlist = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [wishData]);
 
   return (
     <div>

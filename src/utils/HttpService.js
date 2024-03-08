@@ -161,6 +161,24 @@ export const removeCart = async (endpoint) => {
   }
 };
 
+export const deleteCart = async (endpoint) => {
+  try {
+    const header = {
+      Authorization: `Bearer ${localStorage.getItem("Token")}`,
+    };
+    const response = await axios.delete(baseURL + endpoint, {
+      headers: header,
+    });
+
+    const bookData = response.data;
+
+    return bookData;
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    throw error;
+  }
+};
+
 //Orders
 
 export const getOrders = async (endpoint) => {

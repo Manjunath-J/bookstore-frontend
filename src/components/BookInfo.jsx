@@ -17,14 +17,26 @@ import Avatar from "@mui/material/Avatar";
 import { IconButton } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import Firstpage from "./Firstpage";
 
-const BookInfo = ({handleClick}) => {
+const BookInfo = () => {
   const book = useParams();
   const [books, setBook] = useState([]);
   const [Quantity, setQuantity] = useState(1);
   const [isAdd, setIsAdd] = useState(false);
   const [isWish, setIsWish] = useState(false);
   const navigate = useNavigate();
+  const [opend, setOpend] = useState(false);
+  const [selectedValue, setSelectedValue] = useState();
+
+  const handleClickOpen = () => {
+    setOpend(true);
+  };
+
+  const handleClose = (value) => {
+    setOpend(false);
+    setSelectedValue(value);
+  };
 
   const status = localStorage.getItem("Token") ? true : false;
 
@@ -35,7 +47,7 @@ const BookInfo = ({handleClick}) => {
 
       if (status) {
         const res = await getCart("/cart");
-        let cartData = res?.data.items;
+        let cartData = res.data?.items;
         const data = cartData?.filter(
           (ele) => ele.book_id === result.data?.data._id
         );
@@ -48,7 +60,7 @@ const BookInfo = ({handleClick}) => {
 
       if (status) {
         const wish = await getWishList("/wishlist");
-        let wishData = wish?.data.items;
+        let wishData = wish.data?.items;
         const wishlist = wishData?.filter(
           (ele) => ele.book_id === result.data?.data._id
         );
@@ -71,7 +83,7 @@ const BookInfo = ({handleClick}) => {
       if (isWish) {
         await updateWishlist(`/wishlist/${books._id}`);
       } else await removeWishlist(`/wishlist/${books._id}`);
-    } 
+    }
   };
 
   const increaseQuantity = () => {
@@ -92,7 +104,7 @@ const BookInfo = ({handleClick}) => {
     if (status) {
       await updateCart(`/cart/${books._id}`);
       if (!isAdd) setIsAdd(true);
-    } 
+    }
   };
 
   const handleRemove = async () => {
@@ -120,9 +132,20 @@ const BookInfo = ({handleClick}) => {
                     </IconButton>
                   </div>
                 ) : (
-                  <button className="cart-b" onClick={() => handleCart()}>
-                    ADD TO CART
-                  </button>
+                  <div style={{width:"100%"}}>
+                    {status ? (
+                      <button className="cart-b" onClick={() => handleCart()}>
+                        ADD TO CART
+                      </button>
+                    ) : (
+                      <button
+                        className="cart-b"
+                        onClick={() => handleClickOpen()}
+                      >
+                        ADD TO CART
+                      </button>
+                    )}
+                  </div>
                 )}
               </div>
             ) : (
@@ -132,19 +155,35 @@ const BookInfo = ({handleClick}) => {
                 </button>
               </div>
             )}
-            <button
-              className={`wish-b ${isWish ? "active" : ""}`}
-              onClick={() => handleWish(!isWish)}
-            >
-              <FavoriteIcon
-                sx={
-                  isWish
-                    ? { color: "#EE4B2B", fontSize: "medium" }
-                    : { color: "#FFFFFF", fontSize: "medium" }
-                }
-              ></FavoriteIcon>
-              WISHLIST
-            </button>
+              {status ? (
+                <button
+                  className={`wish-b ${isWish ? "active" : ""}`}
+                  onClick={() => handleWish(!isWish)}
+                >
+                  <FavoriteIcon
+                    sx={
+                      isWish
+                        ? { color: "#EE4B2B", fontSize: "medium" }
+                        : { color: "#FFFFFF", fontSize: "medium" }
+                    }
+                  ></FavoriteIcon>
+                  WISHLIST
+                </button>
+              ) : (
+                <button
+                  className={`wish-b ${isWish ? "active" : ""}`}
+                  onClick={() => handleClickOpen()}
+                >
+                  <FavoriteIcon
+                    sx={
+                      isWish
+                        ? { color: "#EE4B2B", fontSize: "medium" }
+                        : { color: "#FFFFFF", fontSize: "medium" }
+                    }
+                  ></FavoriteIcon>
+                  WISHLIST
+                </button>
+              )}
           </div>
         </div>
         <div className="right-div">
@@ -244,6 +283,11 @@ const BookInfo = ({handleClick}) => {
           </div>
         </div>
       </div>
+      <Firstpage
+        selectedValue={selectedValue}
+        open={opend}
+        onClose={handleClose}
+      />
     </>
   );
 };

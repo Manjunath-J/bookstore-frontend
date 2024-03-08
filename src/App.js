@@ -9,6 +9,8 @@ import Order from './components/Order';
 import Sign from './components/Sign';
 import { Provider } from 'react-redux';
 import BookStore from "./utils/redux-stores/Bookstore"
+import Profile from './components/Profile';
+import MyOrders from './components/MyOrders';
 
 
   const AppRoutes = createBrowserRouter([
@@ -23,6 +25,8 @@ import BookStore from "./utils/redux-stores/Bookstore"
         { path: "cart", element: <Cart /> },
         { path: "wishlist", element: <Wishlist /> },
         { path: "order", element: <Order /> },
+        { path: "myorders", element: <MyOrders /> },
+        { path: "profile", element: <Profile /> },
       ],
     },
     {

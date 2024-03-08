@@ -6,7 +6,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import OrderCard from "./OrderCard";
 import { useNavigate } from "react-router-dom";
-import { getCart } from "../utils/HttpService";
+import { deleteCart, getCart, placeOrder } from "../utils/HttpService";
 
 const Cart = () => {
   const [isAddress, setisAddress] = useState(false);
@@ -15,24 +15,31 @@ const Cart = () => {
 
   const [cartData, setCartData] = useState([]);
   const [isCart, setIsCart] = useState(false);
+  const [total, setTotal] = useState("");
+  const [isTotal, setIsTotal] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       if (status) {
         const res = await getCart("/cart");
-        if (res?.data.items) {
-          setCartData(res.data?.items);
-          if(res.data.items.length>0)
+        if (res.data?.items) {
+          setCartData(res.data.items);
+          setTotal(res.data.total);
+          if (res.data.items.length > 0) {
             setIsCart(true);
+            setIsTotal(true);
+          }
         }
       }
     };
     fetchData();
-  }, []);
+  }, [cartData]);
 
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
+  const handleNavigate = async () => {
+    await placeOrder("order",{});
+    await deleteCart("cart");
     navigate("/order");
   };
 
@@ -76,6 +83,13 @@ const Cart = () => {
             </div>
             {!isAddress ? (
               <div className="c-down">
+                {isTotal ? (
+                  <span style={{ fontSize: "22px", fontWeight: "500" }}>
+                    Rs. {total}
+                  </span>
+                ) : (
+                  <div></div>
+                )}
                 <button
                   className="place-o-button"
                   onClick={() => handleAddressDiv(true)}
@@ -118,6 +132,7 @@ const Cart = () => {
                       <span className="ad-txt">Address</span>
                       <textarea
                         type="text"
+                        rows="4"
                         placeholder="Address"
                         className="ad-input-large"
                       />
@@ -189,10 +204,15 @@ const Cart = () => {
                   <span className="o-summary">Order Summary</span>
                 </div>
                 <div>
-                  <OrderCard />
+                  {cartData.map((book) => (
+                    <OrderCard key={book._id} book={book} />
+                  ))}
                 </div>
               </div>
               <div className="o-down">
+                <span style={{ fontSize: "22px", fontWeight: "500" }}>
+                  Rs. {total}
+                </span>
                 <button className="check-button" onClick={handleNavigate}>
                   CHECKOUT
                 </button>
